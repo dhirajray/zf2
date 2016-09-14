@@ -1,0 +1,11 @@
+git init
+git add --all
+git commit --all "commit message"
+git remote add origin https://github.com/dhirajray/zf2.git
+git push -u orgin master
+
+update file
+
+git commit -m
+git push
+
