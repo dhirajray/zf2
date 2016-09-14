@@ -1,0 +1,107 @@
+<?php echo $this->headTitle($this->translate('Записи'), 'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<div class="span9">
+    <h1>
+        Записи
+    </h1>
+        <?= $this->flashmessengerHelper() ?>
+    <div class="btn-group">
+        <a href="<?php
+        echo $this->url('admin', ['controller' => 'posts',
+            'action' => 'create']);
+        ?>" class="btn"><i class="icon-plus"></i></a>
+        <a class="btn"><i class="icon-magnet"></i></a>
+    </div>
+    <br/>
+    <br/>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Заголовок
+                </th>
+                <th>
+                    Текст
+                </th>
+                <th>
+                    Категория
+                </th>
+                <th>
+                    Created
+                </th>
+                <th>
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($posts as $post): ?>
+                <tr>
+                    <td>
+                        <?php echo $post->getId(); ?>
+                    </td>
+                    <td>
+                        <a href="<?= $this->url('admin', ['controller' => 'posts',
+                            'action' => 'get',
+                            'id' => $post->getId()]) ?>"><?php echo $post->getTitle(); ?></a>
+                    </td>
+                    <td>
+                        <?php echo substr($post->getText(), 0, 100); ?>
+                    </td>
+                    <td>
+                        <?php echo $post->getCategorie()->getId(). '- '. $post->getCategorie()->getCategorieName(); ?>
+                    </td>
+                    <td>
+                        <?php echo $post->getCreatedAt(); ?>
+                    </td>
+                    <td>
+                        <a href="<?php
+                        echo $this->url('admin', ['controller' => 'posts',
+                            'action' => 'get',
+                            'id' => $post->getId()]);
+                        ?>" data-toggle="modal" data-target="#categorieEditModal"><i class="icon-edit"></i></a>
+                        <a href="<?php
+                        echo $this->url('admin', ['controller' => 'posts',
+                            'action' => 'delete',
+                            'id' => $post->getId()]);
+                        ?>"><i class="icon-trash"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>				
+    <div class="pagination">
+        <ul>
+            <li class="disabled">
+                <a href="#">&laquo;</a>
+            </li>
+            <li class="active">
+                <a href="#">1</a>
+            </li>
+            <li>
+                <a href="#">2</a>
+            </li>
+            <li>
+                <a href="#">3</a>
+            </li>
+            <li>
+                <a href="#">4</a>
+            </li>
+            <li>
+                <a href="#">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="modal fade hide" id="postEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Edit post</h2>
+    </div>
+    <div class="modal-body">
+    </div>
+
+</div>

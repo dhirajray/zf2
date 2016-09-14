@@ -1,0 +1,15 @@
+<?php echo $this->headTitle($post->getTitle(),'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<h3 class="news-title"><?= $post->getTitle() ?></h3><span class="liner"></span>
+
+<div class="post row-fluid clearfix">
+        <div class="span5"><img alt="#" src="<?= $post->getImage()->getPath() ?>" class="four-radius"></div>
+        <div class="span7" style="color:#fff;">
+            <p>
+                <?= $post->getText() ?>
+            </p>
+            <div class="meta">
+		 <a target="_bank" href="https://plus.google.com/105500804589774662589?rel=author"><i class="icon-plus"></i>Таисия</a>
+               | <span> <i class="icon-time mi"></i><?= $post->getCreatedAt(); ?></span> 
+            </div><!-- meta -->
+        </div><!-- span7 -->
+</div>

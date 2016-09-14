@@ -1,0 +1,31 @@
+<?php
+function softTrim($text, $count, $wrapText='...'){
+
+    if(strlen($text)>$count){
+        preg_match('/^.{0,' . $count . '}(?:.*?)\b/siu', $text, $matches);
+        $text = $matches[0];
+    }else{
+        $wrapText = '';
+    }
+    return $text . $wrapText;
+}
+?>
+<?php echo $this->headTitle($this->translate('Записи:'.$categorie->getCategorieName()),'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<h4><?php echo $categorie->getCategorieName(); ?></h4><span class="liner"></span>
+<?php foreach ($posts as $post): ?>
+    <div style="" class="news row-fluid animtt fadeUp">
+        <div class="span5"><img alt="#" src="<?= $post->getImage()->getPath() ?>" class="four-radius"></div>
+        <div class="span7">
+            <h3 class="news-title"> <a href="news_single.html"><?php echo $post->getTitle(); ?></a> </h3>
+            <p>
+                <?= softTrim($post->getText(),575); ?>
+          </p>
+            <div class="meta">
+		 <a target="_bank" href="https://plus.google.com/105500804589774662589?rel=author"><i class="icon-plus"></i>Таисия</a>
+               | <span> <i class="icon-time mi"></i><?= $post->getCreatedAt(); ?></span>
+            </div><!-- meta -->
+            <a class="sign-btn tbutton small" href="<?= $this->url('news', ['controller' => 'news',
+                'action' => 'view', 'id' => $post->getId()]) ?>"><span>Читать полность...</span></a>
+        </div><!-- span7 -->
+    </div>
+<?php endforeach; ?>

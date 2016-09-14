@@ -1,0 +1,29 @@
+<?php echo $this->headTitle($this->translate('Контакты'),'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<div class="def-block clearfix">
+    <h1> Свяжитесь со мной </h1>
+    &nbsp;
+    <span class="liner"></span>
+    <h5> Или задайте интересующий Вас вопрос </h5>
+    
+
+    <div class="grid_6 mt">
+        <p><h6>Профессиональный визажист - Таисия Чупырь</h6>
+        <p><i class="icon-phone"></i> Телефон: <strong> 063 244 57 10 </strong> <br>
+            <i class="icon-envelope"></i> Почта: <strong><a href="mailto:taisiya.chupyr5@mail.ru">taisiya.chupyr5@mail.ru</a></strong><br>
+            <i class="icon-plane"></i> Адресс: <strong> г. Харьков, ул. Архитекторов 28</strong>
+        </p>
+    </div><!-- end grid6 -->
+
+    <div class="grid_6 mt">
+        <form action="#" id="contactForm" method="post">
+            <div class="clearfix">
+                <div class="grid_6 alpha fll"><input type="text" class="requiredField" placeholder="Имя *" id="senderName" name="senderName"></div>
+                <div class="grid_6 omega flr"><input type="text" class="requiredField email" placeholder="Почта *" id="senderEmail" name="senderEmail"></div>
+            </div>
+            <div><textarea rows="8" class="requiredField" placeholder="Сообщение *" id="message" name="message"></textarea></div>
+            <input type="submit" value="Отправить" name="sendMessage" id="sendMessage">
+            <span>  </span>
+        </form><!-- end form -->
+    </div><!-- end grid6 -->
+
+</div>

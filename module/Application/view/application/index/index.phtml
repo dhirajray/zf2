@@ -1,0 +1,37 @@
+<?php echo $this->headTitle($this->translate('Ð“Ð»Ð°Ð²Ð½Ð°Ñ�'), 'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+<?php
+function softTrim($text, $count, $wrapText='...'){
+
+    if(strlen($text)>$count){
+        preg_match('/^.{0,' . $count . '}(?:.*?)\b/siu', $text, $matches);
+        $text = $matches[0];
+    }else{
+        $wrapText = '';
+    }
+    return $text . $wrapText;
+}
+
+?>
+
+<?php echo $this->headTitle($this->translate('Blog'),'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<?php foreach ($posts as $post): ?>
+    <div style="" class="news row-fluid animtt fadeUp">
+        
+        <div class="span7">
+            <h2 class="news-title"> <a style="font-size:18px;border-bottom: 1px solid #FF0078;" href="<?= $this->url('news', ['controller' => 'news',
+                'action' => 'view', 'id' => $post->getId()]) ?>"><?php echo $post->getTitle(); ?></a> </h2>
+            <p>
+                <?= softTrim($post->getText(),575) ?>
+            </p>
+            <div class="meta">
+	        <a target="_bank" href="https://plus.google.com/105500804589774662589?rel=author"><i class="icon-plus"></i>new blog</a>
+                | <span> <i class="icon-time mi"></i><?= $post->getCreatedAt(); ?></span>
+            </div><!-- meta -->
+            <a class="sign-btn tbutton small" href="<?= $this->url('news', ['controller' => 'news',
+                'action' => 'view', 'id' => $post->getId()]) ?>">
+                <span>Ð§Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ð½Ð¾Ñ�Ñ‚ÑŒ...</span></a>
+        </div><!-- span7 -->
+    </div>
+<?php endforeach; ?>
+

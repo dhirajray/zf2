@@ -1,0 +1,27 @@
+<?php echo $this->headTitle($this->translate('ÐžÑ‚Ð·Ñ‹Ð²Ñ‹'), 'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<h4>ÐžÑ‚Ð·Ñ‹Ð²Ñ‹ Ð¸ Ð¿Ð¾Ð¶ÐµÐ»Ð°Ð½Ð¸Ñ�</h4><span class="liner"></span>
+<a class="btn btn-inverse" href="<?= $this->url('home', ['controller' => 'review',
+    'action' => 'add']);
+?>"> Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ñ‚Ð·Ñ‹Ð² <i class="icon-plus-sign"></i></a>
+<br>
+<br>
+<span class="liner"></span>
+<div style="" class="news row-fluid animtt fadeUp">
+    <ul style="color: white;" class="the-list">
+                <?php foreach ($articals as $artical): ?>
+            <li><p><i class="icon-ok"></i>
+    <?= $artical->getText() ?></p>
+                <div class="meta">
+                    <i class="icon-mail-forward"></i>  <?= empty($artical->getText())
+            ? $artical->getText()
+            : $artical->getText() ?>
+                    | <span> <i class="icon-time"></i><?= $artical->getText(); ?></span>
+                </div><!-- meta -->
+            </li>
+            <hr> 
+<?php endforeach; ?>
+
+    </ul>
+
+
+</div>

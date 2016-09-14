@@ -1,0 +1,127 @@
+<?php echo $this->doctype(); ?>
+<!--[if IE 7 ]><html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9" xmlns="http://www.w3.org/1999/xhtml" lang="en-US"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<?php 
+if (defined('RUNNING_FROM_ROOT')) {
+  $this->plugin('basePath')->setBasePath($this->basePath());
+  
+  //echo $this->basePath();
+ // echo $this->basePath();
+} ?>
+
+<html lang="ru">
+    <head>
+        
+        <meta charset="utf-8">
+        <?php echo $this->headTitle() ?>
+        <?php
+        $this->headMeta()->appendName(
+                'description', 'Ð¡Ð°Ð¹Ñ‚ Ð²Ð¸Ð·Ð°Ð¶Ð¸Ñ�Ñ‚Ð°, Ð¢Ð°Ð¸Ñ�Ð¸Ð¸ Ð§ÑƒÐ¿Ñ‹Ñ€ÑŒ. ÐŸÑ€ÐµÐ´Ð¾Ñ�Ñ‚Ð²Ð°Ð»ÐµÐ½Ð¸Ðµ ÑƒÑ�Ð»ÑƒÐ³ Ð¿Ð¾ Ð²Ð¸Ð·Ð°Ð¶Ñƒ, Ð¼Ð°ÐºÐ¸Ñ�Ð¶Ñƒ Ð² Ð³Ð¾Ñ€Ð¾Ð´Ðµ Ð¥Ð°Ñ€ÑŒÐºÐ¾Ð²Ðµ'
+        );
+        $this->headMeta()->appendName(
+                'keywords', 'Ð²Ð¸Ð·Ð°Ð¶Ð¸Ñ�Ñ‚, Ð¼Ð°ÐºÐ¸Ñ�Ð¶, Ð¥Ð°Ñ€ÑŒÐºÐ¾Ð², makeup, ÑƒÑ�Ð»ÑƒÐ³Ð¸, Ñ€ÐµÑ�Ð½Ð¸Ñ†Ñ‹, Ñ�Ð²Ð°Ð´ÐµÐ±Ð½Ñ‹Ð¹ Ð¼Ð°ÐºÐ¸Ñ�Ð¶, '
+                . 'Ð²ÐµÑ‡ÐµÑ€Ð½Ð¸Ð¹ Ð¼Ð°ÐºÐ¸Ñ�Ð¶, Ð´Ð½ÐµÐ²Ð½Ð¾Ð¹ Ð¼Ð°ÐºÐ¸Ñ�Ð¶, Ñ„Ð¾Ñ‚Ð¾ Ñ�ÑŠÐµÐ¼ÐºÐ°, Ð²Ð¸Ð´ÐµÐ¾ Ñ�ÑŠÐµÐ¼ÐºÐ°, Ð¼ÑƒÐ¶Ñ�ÐºÐ¾Ð¹ Ð¼Ð°ÐºÐ¸Ñ�Ð¶, Ð¢Ð°Ð¸Ñ�Ð¸Ñ�, Ð¢Ð°Ð¸Ñ�Ð¸Ñ� Ð§Ð£Ð¿Ñ‹Ñ€ÑŒ, Ð»Ð¸Ñ„Ñ‚Ð¸Ð½Ð³, Ð´ÐµÐ»Ð¾Ð²Ð¾Ð¹ Ð¼Ð°ÐºÐ¸Ñ�Ð¶');
+        ?>
+        <?php echo $this->headMeta() ?>
+
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon',
+            'href' => '/img/favicon.ico')); ?>
+        <!--[if IE]>
+                <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE" />
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+                <link rel="stylesheet" type="text/css" href="styles/icons/font-awesome-ie7.min.css" />
+        <![endif]-->
+    </head>
+    <body id="fluidGridSystem">
+        <div id="layout" class="full">
+
+            <?php echo $this->partial('partials/header'); ?>
+            <!-- Start Revolution Slider -->
+            <?php if ($this->controllerName() == 'Application\Controller\Index'): ?>
+                <?= $this->partial('partials/slider'); ?>
+            <?php else : ?>
+                <div class="under_header"><img src="/img/assets/breadcrumbs<?= rand(1, 2) ?>.png" alt="#"></div><!-- under header -->
+
+            <?php endif; ?>
+            <!-- End Revolution Slider -->
+
+            <div class="page-content">
+
+                <?php if ($this->controllerName() != 'Application\Controller\Index'): ?>
+                    <div class="row clearfix mb">
+                        <?= $this->partial('partials/breadcrumbs') ?>
+                    </div>
+                <?php endif; ?>
+
+
+                <div class="row row-fluid clearfix mbf">
+                    <div class="span8">
+                        <div class="def-block">
+                            <?php if ($this->controllerName() == 'Application\Controller\Index'): ?>
+                                <h1> ÐŸÐ¾Ñ�Ð»ÐµÐ´Ð½Ð¸Ðµ Ð·Ð°Ð¿Ð¸Ñ�Ð¸ </h1><span class="liner"></span>
+                            <?php endif; ?>
+                            <?php echo $this->content; ?>
+
+                        </div><!-- def block -->
+                    </div><!-- span8 news -->
+
+                    <?php echo $this->partial('partials/leftSidebar'); ?>
+
+                </div><!-- row clearfix -->
+
+            </div><!-- end page content -->
+
+            <?php echo $this->partial('partials/footer'); ?>
+
+        </div><!-- end layout -->
+        <!-- Scripts -->
+        <?php echo $this->headScript(); ?>
+        <?php echo $this->inlineScript(); ?>
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            var tpj = jQuery;
+            tpj.noConflict();
+            tpj(document).ready(function() {
+                if (tpj.fn.cssOriginal != undefined)
+                    tpj.fn.css = tpj.fn.cssOriginal;
+                var api = tpj('.revolution').revolution({
+                    delay: 4000,
+                    startheight: 380,
+                    startwidth: 960,
+                    hideThumbs: 200,
+                    thumbWidth: 80,
+                    thumbHeight: 50,
+                    thumbAmount: 5,
+                    navigationType: "no",
+                    navigationArrows: "verticalcentered",
+                    navigationStyle: "round",
+                    touchenabled: "on",
+                    onHoverStop: "on",
+                    navOffsetHorizontal: 0,
+                    navOffsetVertical: 20,
+                    shadow: 0
+                });
+            });
+            /* ]]> */
+        </script>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-45788857-1', 'taisiya-makeup.com');
+            ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>

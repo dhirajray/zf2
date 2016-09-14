@@ -1,0 +1,39 @@
+{
+    "name": "cawakharkov/zf2-blog",
+    "description": "Simple blog,portfolio system, build with ZF2",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "zf2",
+        "blog",
+        "portfolio"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "2.*@dev",
+        "doctrine/doctrine-orm-module": "0.*",
+        "doctrine/migrations": "dev-master",
+        "Mockery/Mockery": "dev-master",
+        "zendframework/zftool": "dev-master",
+        "phpunit/phpunit": "3.7.*@dev",
+        "zendframework/zendservice-api": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master",
+        "neilime/zf2-assets-bundle": "dev-master",
+        "rwoverdijk/assetmanager": "1.*",
+        "zf-commons/zfc-user": "1.*@dev",
+        "zf-commons/zfc-user-doctrine-orm": "dev-master",
+        "bjyoungblood/bjy-authorize": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Application\\": "module/Application/src",
+            "Admin\\": "module/Admin/src"
+        }
+    }
+}

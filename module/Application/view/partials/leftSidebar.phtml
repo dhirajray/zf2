@@ -1,0 +1,22 @@
+<div class="span4">
+    <div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+        <h4> Новости </h4><span class="liner"></span>
+        <div class="widget-content row-fluid">
+            <?php echo $this->categoriesHelper(); ?>
+        </div><!-- widget content -->
+    </div><!-- side menu -->
+    <?php
+    // rand tags
+    $tags = ['label-important' => 0, 'label-inverse' => 1, 'label-success' => 2,
+        'label-warning' => 3];
+    ?>
+<?php //$this->categoriesHelper();  ?>
+    <div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+        <h4> Популярные #теги </h4><span class="liner"></span>
+        <div class="widget-content tags">
+            <a title="17 topic" class="#" href="#"><i class="icon-tag"></i> визаж </a>
+            <a title="17 topic" class="#" href="#"><i class="icon-tag"></i> макияж </a>
+        </div><!-- widget content -->
+    </div>
+    <!-- Put this script tag to the <head> of your page -->
+</div><!-- span4 sidebar -->

@@ -1,0 +1,20 @@
+<?php echo $this->headTitle($this->translate('Портфолио'), 'PREPEND')->setSeparator(' - ')->setAutoEscape(false) ?>
+<div class="topbar">
+    <div id="close" class="tbutton small tback"><span>< Обратно к альбомам</span></div>
+    <h4 id="name">Портфолио</h4><span class="liner"></span>
+
+</div>
+<div class="def-block clearfix">
+    <div class="mbf clearfix">
+        <ul id="tp-grid" class="tp-grid">
+            <?php foreach ($images as $image): ?>
+                <li class="grid_3" data-pile="Макияж" >
+                    <a title="<?php // $image->getTitle()    ?>" data-gal="photo[gal1]" href="<?= $image->getPath() ?>" >
+                        <img alt="<?php //$image->getTitle()    ?>" src="<?= $image->getPath() ?>">
+                        <?php // $image->getTitle() ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>  
+    </div>
+</div>

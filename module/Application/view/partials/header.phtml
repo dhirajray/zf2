@@ -1,0 +1,57 @@
+<!-- popup login -->
+<div id="popupLogin">
+    <div class="def-block widget">
+        <h4> Ð’Ð¾Ð¹Ñ‚Ð¸ </h4><span class="liner"></span>
+        <div class="widget-content row-fluid">
+            </script>
+            <form id="popup_login_form" action="<?= $this->url('zfcuser/login') ?>" method="POST">
+                <input type="text" name="identity" id="" placeholder="Ð’Ð°Ñˆ email">
+                <input type="password" name="credential" id="" placeholder="ÐŸÐ°Ñ€Ð¾Ð»ÑŒ">
+                <br>
+                <button class="tbutton small"><span>Ð’Ð¾Ð¹Ñ‚Ð¸</span></button><hr>
+                Ð˜Ð»Ð¸ <a href="<?= $this->url('zfcuser/register') ?>" class=" color2 "><span>Ð·Ð°Ñ€ÐµÐ³Ð¸Ñ�Ñ‚Ñ€Ð¸Ñ€ÑƒÐ¹Ñ‚ÐµÑ�ÑŒ</span></a>
+            </form><!-- login form -->
+        </div><!-- content -->
+    </div><!-- widget -->
+    <div id="popupLoginClose">x</div>
+</div><!-- popup login -->
+<div id="LoginBackgroundPopup"></div>
+<!-- popup login -->
+
+<header id="header" class="glue">
+    <div class="row clearfix">
+        <div class="little-head" style="float: left">
+            <?php if (!$this->zfcUserIdentity()): ?>
+                <div id="Login_PopUp_Link" class="sign-btn tbutton small"><span>Ð’Ð¾Ð¹Ñ‚Ð¸</span></div>
+            <?php else: ?>
+                <div class="sign-btn">
+                    Welcome: <span style="color:#0088CC;"><?php echo $this->zfcUserIdentity()->getEmail(); ?></span>
+                </div>
+            <?php endif ?>
+            <div class="social social-head">
+                <a href="https://twitter.com/ChupyrTaisiya/" class="bottomtip" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                <a href="https://www.facebook.com/taisiia.chupyr" class="bottomtip" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>
+                <a href="http://instagram.com/taisiya_chupyr" class="bottomtip" title=Instagram" target="_blank"><i class="icon-instagram"></i></a>
+            </div><!-- end social -->
+
+            <div class="search">
+                <form action="/search" id="search" method="get">
+                    <input id="inputhead" name="q" type="text" placeholder="Ð˜Ñ�ÐºÐ°Ñ‚ÑŒ ..." style="background-color: white;color: #0088CC;font-weight: bold;">
+                    <button type="submit"><i class="icon-search"></i></button>
+                </form><!-- end form -->
+            </div><!-- search -->
+        </div><!-- little head -->
+    </div><!-- row -->
+
+    <div class="headdown">
+        <div class="row clearfix">
+            <div class="logo" title="Zns" style=" width:100px;">
+                <a href="<?php echo $this->url('home'); ?>">                     
+                    <img src="/img/slides/slide1-cap5.png" alt="Image 6" style="float: left;"><h2 class="logoText" style="padding:10px 0 0 10px; display:inline-block;">Zns</h2>
+                </a>
+            </div><!-- end logo -->
+
+            <?php echo $this->partial('partials/navigation'); ?>
+        </div><!-- row -->
+    </div><!-- headdown -->
+</header><!-- end header -->
